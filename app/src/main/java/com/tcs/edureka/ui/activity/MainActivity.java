@@ -14,14 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.slice.widget.SliceLiveData;
-import androidx.slice.widget.SliceView;
-
 import com.squareup.picasso.Picasso;
 import com.tcs.edureka.R;
 import com.tcs.edureka.databinding.ActivityMainBinding;
@@ -30,7 +22,7 @@ import com.tcs.edureka.receivers.AlarmReceiver;
 import com.tcs.edureka.receivers.SpeechRecognitionReceiver;
 import com.tcs.edureka.services.SpeechRecognitionService;
 import com.tcs.edureka.ui.activity.appointments.AppointmentActivity;
-import com.tcs.edureka.ui.activity.contacts.ContactsActivity;
+import com.tcs.edureka.ui.activity.contacts.ReadContacts;
 import com.tcs.edureka.ui.activity.map.MapActivity;
 import com.tcs.edureka.ui.activity.media.MyMediaPlayerActivity;
 import com.tcs.edureka.ui.activity.weather.WeatherActivity;
@@ -41,6 +33,13 @@ import com.tcs.edureka.utility.Utility;
 
 import java.util.Date;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.slice.widget.SliceLiveData;
+import androidx.slice.widget.SliceView;
 import dagger.hilt.android.AndroidEntryPoint;
 
 import static android.view.View.GONE;
@@ -169,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.contact.setOnClickListener(e -> {
-            startActivity(new Intent(MainActivity.this, ContactsActivity.class));
+            startActivity(new Intent(MainActivity.this, ReadContacts.class));
         });
 
         binding.weather.setOnClickListener(e -> {
@@ -247,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void openContacts() {
-        Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+        Intent intent = new Intent(MainActivity.this, ReadContacts.class);
         startActivity(intent);
     }
 
